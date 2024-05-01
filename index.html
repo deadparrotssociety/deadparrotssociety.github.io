@@ -14,14 +14,14 @@
 </div>
 
 <ul id="myUL">
-    <li><strong>Character</strong>: I was a full person onstage</li>   
-    <li><strong>Relationships</strong>: My character had a direct connection to others</li>
-    <li><strong>Objective</strong>: I needed to achieve something by the end of the scene</li>
-    <li><strong>Where</strong>: I established and interacted with my physical space</li>
-    <li><strong>Stakes</strong>: If I failed my objective, there would be consequences</li>
-    <li><strong>Yes, And</strong>: My partner(s) and I agreed on the reality of the world</li>
-    <li><strong>Show, Don't Tell</strong>: Everything occured between characters and objects the audience could see</li>
-    <li><strong>I Had Fun</strong>: Hooray!</li>
+    <li><b>Character</b>: I was a full person onstage</li>   
+    <li><b>Relationships</b>: My character had a direct connection to others</li>
+    <li><b>Objective</b>: I needed to achieve something by the end of the scene</li>
+    <li><b>Where</b>: I established and interacted with my physical space</li>
+    <li><b>Stakes</b>: If I failed my objective, there would be consequences</li>
+    <li><b>Yes, And</b>: My partner(s) and I agreed on the reality of the world</li>
+    <li><b>Show, Don't Tell</b>: Everything occured between characters and objects the audience could see</li>
+    <li><b>I Had Fun</b>: Hooray!</li>
 </ul>
 <style>
 body {
@@ -119,23 +119,22 @@ ul li.checked::before {
 
 
 // Add a "checked" symbol when clicking on a list item
+
+
 var list = document.querySelector('ul');
-var total = document.querySelectorAll('ul li').length;
 var score = 0;
 var scoreDisplay = document.querySelector('#scoreDisplay');
+
 list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'B') {
+    ev.target.parentNode.classList.toggle('checked');
+  }
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
-  }
-  if (ev.target.classList.contains('checked')){
-    score++;
-  } else {
-    score--;
-  }
-
-  scoreDisplay.textContent = score + "/8";
+  } 
+  var checkedItems = document.querySelectorAll('li.checked').length;
+  scoreDisplay.textContent = checkedItems + "/8";
 }, false);
-
 
 
 </script>
